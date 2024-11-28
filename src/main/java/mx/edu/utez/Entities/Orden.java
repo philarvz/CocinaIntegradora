@@ -1,12 +1,13 @@
 package mx.edu.utez.Entities;
 
-import java.util.List;
+
+import mx.edu.utez.EstructurasDeDatos.LinkedList;
 
 public class Orden {
-    private long id;
-    private List<Platillo> platillos;
+    private int id;
+    private LinkedList<Platillo> platillos;
 
-    public Orden(long id, List<Platillo> platillos) {
+    public Orden(int id, LinkedList<Platillo> platillos) {
         this.id = id;
         this.platillos = platillos;
     }
@@ -15,15 +16,15 @@ public class Orden {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public List<Platillo> getPlatillos() {
+    public LinkedList<Platillo> getPlatillos() {
         return platillos;
     }
 
-    public void setPlatillos(List<Platillo> platillos) {
+    public void setPlatillos(LinkedList<Platillo> platillos) {
         this.platillos = platillos;
     }
 }
