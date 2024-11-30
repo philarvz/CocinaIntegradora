@@ -7,5 +7,11 @@ public class Main {
     public static void main(String[] args) {
         ClienteDao dao = new ClienteDao();
         dao.generarClientes();
+        dao.generarClientes();
+        dao.generarClientes();
+
+        dao.desencolarCliente();
+        dao.desencolarCliente();
+        dao.desencolarCliente();
     }
 }
