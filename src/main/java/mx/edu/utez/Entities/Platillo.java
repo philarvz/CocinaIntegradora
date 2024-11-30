@@ -8,10 +8,10 @@ public class Platillo {
     public Platillo() {
     }
 
-    public Platillo(String descripcion, double precio, String nombre) {
-        this.descripcion = descripcion;
-        this.precio = precio;
+    public Platillo(String nombre, double precio, String descripcion) {
         this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -36,5 +36,11 @@ public class Platillo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + "\n" + "Precio: "+ precio
+                + "\n" + "Descripción: " + descripcion + "\n--------------------------------";
     }
 }
