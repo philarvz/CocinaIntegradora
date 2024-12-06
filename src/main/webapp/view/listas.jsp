@@ -1,153 +1,87 @@
-<!doctype html>
-<html lang="en">
+<%@ page import="mx.edu.utez.Entities.Cliente" %>
+<%@ page import="mx.edu.utez.Dao.ClienteDao" %>
+<%@ page import="mx.edu.utez.EstructurasDeDatos.Queue" %>
+<%@ page import="mx.edu.utez.Entities.Platillo" %>
+<%
+    ClienteDao dao = (ClienteDao) session.getAttribute("dao");
+    if (dao == null) {
+        dao = new ClienteDao();
+        session.setAttribute("dao", dao);
+    }
+%>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilares's Kitchen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
 
-
-<div class="row">
-    <nav class="navbar  bg-body-tertiary p-1">
-        <div class="container-fluid">
-            <div class="row w-100">
-                <div class="col-3 ms-5">
-                    <a class="navbar-brand" href="#">Pilares's Kitchen</a>
-                </div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
-                    <h3 class="text-center">Lista de órdenes</h3>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="col-12">
-        <div class="row d-flex justify-content-center mt-4">
-            <div class="col-10 ms-1 mb-1">
-                <div class="row g-4">
-
-                    <div class="col">
-                        <div class="card rounded-3  shadow-lg  mb-5 bg-body-tertiary rounded " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div class="row">
-                                <img src="img1.jpg"  class="card-img-top img-fliud" alt="" height="150">
-                            </div>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-8"><h5 class="card-title">Orden 1</h5>
-                                            <p class="card-text">Hamburuesa</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-
-                        <div class="card rounded-3  shadow-lg  mb-5 bg-body-tertiary rounded " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div class="row">
-                                <img src="img1.jpg"  class="card-img-top img-fliud" alt="" height="150">
-                            </div>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-8"><h5 class="card-title">Orden 1</h5>
-                                            <p class="card-text">Hamburuesa</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-
-                        <div class="card rounded-3  shadow-lg  mb-5 bg-body-tertiary rounded " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div class="row">
-                                <img src="img1.jpg"  class="card-img-top img-fliud" alt="" height="150">
-                            </div>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-8"><h5 class="card-title">Orden 1</h5>
-                                            <p class="card-text">Hamburuesa</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-
-                        <div class="card rounded-3  shadow-lg  mb-5 bg-body-tertiary rounded " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div class="row">
-                                <img src="img1.jpg"  class="card-img-top img-fliud" alt="" height="150">
-                            </div>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-8"><h5 class="card-title">Orden 1</h5>
-                                            <p class="card-text">Hamburuesa</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col text-center">
+            <h3>Lista de Órdenes</h3>
         </div>
     </div>
-
-
-
-
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content">
-            <div class="modal-header bg-warning text-danger-emphasis">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Preparación</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="row mt-3 d-flex justify-content-center" id="ordersContainer">
+        <%
+            Queue<Cliente> cola = dao.getCola();
+            for (int i = 0; i < cola.size(); i++) {
+                Cliente cliente = cola.get(i);
+        %>
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Orden ID: <%= cliente.getOrden().getId() %></h5>
+                <p class="card-text">Cliente: <%= cliente.getNombre() %></p>
+                <ul class="list-group list-group-flush">
+                    <%
+                        for (int j = 0; j < cliente.getOrden().getPlatillos().size(); j++) {
+                            Platillo platillo = cliente.getOrden().getPlatillos().get(j);
+                    %>
+                    <li class="list-group-item"><%= platillo.toString() %></li>
+                    <% } %>
+                </ul>
+                <h6 class="mt-2">Total: $<%= cliente.getOrden().getTotal() %></h6>
             </div>
-            <div class="modal-body">
-                Se están preparando tus alimentos
-            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col text-center">
+            <form method="POST" action="<%= request.getContextPath() %>/GenerarClientesServlet" style="display: inline;">
+                <button id="ordenarButton" type="submit" name="action" value="ordenar" class="btn btn-success">ORDENAR</button>
+            </form>
+            <button id="atenderButton" class="btn btn-danger" onclick="atender()">ATENDER</button>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    async function atender() {
+        document.getElementById('ordenarButton').disabled = true;
+        const interval = setInterval(async () => {
+            const currentOrders = document.querySelectorAll('#ordersContainer .card');
+
+            if (currentOrders.length === 0) {
+                clearInterval(interval);
+                document.getElementById('ordenarButton').disabled = false;
+            } else {
+                const response = await fetch('<%= request.getContextPath() %>/AtenderClientesServlet', { method: 'POST' });
+                if (response.ok) {
+                    const atendido = await response.json();
+                    currentOrders[0].remove();
+                } else {
+                    clearInterval(interval);
+                }
+            }
+        }, 1000);
+    }
+</script>
+
 </body>
-
 </html>

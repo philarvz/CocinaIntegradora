@@ -6,10 +6,19 @@ import mx.edu.utez.EstructurasDeDatos.LinkedList;
 public class Orden {
     private int id;
     private LinkedList<Platillo> platillos;
+    private double total;
 
     public Orden(int id, LinkedList<Platillo> platillos) {
         this.id = id;
         this.platillos = platillos;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public long getId() {

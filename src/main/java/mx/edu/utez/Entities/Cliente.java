@@ -10,6 +10,9 @@ public class Cliente {
         this.orden = orden;
     }
 
+    public Cliente() {
+    }
+
     public String getNombre() {
         return nombre;
     }
