@@ -31,41 +31,60 @@ public class ClienteDao {
         nombre.add("Mateo Rojas");
     }
 
-    public void generarClientes(){
+    public Cliente generarClientes(){
         generarNombres();
         int nombreAleatorio = random.nextInt(14);
         String nombreCliente = nombre.get(nombreAleatorio);
         Cliente cliente = new Cliente(nombreCliente,dao.generarOrdenCliente());
         turnoClientes.offer(cliente);
-        System.out.println(cliente);
+        //System.out.println(cliente);
+        double total = 0;
+        for(int i = 0; i < cliente.getOrden().getPlatillos().size(); i++){
+            total+= cliente.getOrden().getPlatillos().get(i).getPrecio();
+        }
+        cliente.getOrden().setTotal(total);
+        return cliente;
+    }
+
+    public Queue<Cliente> getCola(){
+        return turnoClientes;
     }
 
     //Generar clientes aleatorios (primero se genera la linkedList, luego se genera la orden y al final se guarda la orden en la cliente)
     //Agregar datos a la cola
     //Obtener e imprimir los datos de la cola (Vaciar la cola)
 
-    public void desencolarCliente() {
+    public Cliente desencolarCliente() {
         Cliente clienteAtendido = turnoClientes.poll();
-
         if (clienteAtendido != null) {
-            System.out.println("Orden #" + clienteAtendido.getOrden().getId());
-            System.out.println("Cliente atendido: " + clienteAtendido.getNombre()  + " \n Platillos:");
-
-            double totalOrden = 0;
-            LinkedList<Platillo> platillos = clienteAtendido.getOrden().getPlatillos();
-            for (int i = 0; i < platillos.size(); i++) {
-                System.out.println(" - "+platillos.get(i).getNombre() + " $" + platillos.get(i).getPrecio());
-                System.out.println("    Descripcion: " + platillos.get(i).getDescripcion());
-                totalOrden += platillos.get(i).getPrecio();
-            }
-
-            System.out.println("Total de la orden: $" + totalOrden);
-            System.out.println("--------------------------------");
-        } else {
-            System.out.println("No hay clientes en la fila");
+            int segundos = random.nextInt(5) + 1; // Tiempo aleatorio de 1 a 5 segundos
+            System.out.println("Atendiendo al cliente: " + clienteAtendido.getNombre());
+            pausarPrograma(segundos * 1000);
         }
+        return clienteAtendido;
     }
 
+    public static void pausarPrograma(int segundos){
+        try{
+            Thread.sleep(segundos);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+    }
 
+    public void desencolarClienteAsync() {
+        new Thread(() -> {
+            Cliente clienteAtendido = turnoClientes.poll();
+            if (clienteAtendido != null) {
+                int segundos = random.nextInt(10000) + 1000;
+                pausarPrograma(segundos);
+                // Aquí puedes procesar la orden si es necesario
+            }
+        }).start();
+    }
+
+    public void reiniciarCola() {
+        turnoClientes = new Queue<>();
+    }
 }

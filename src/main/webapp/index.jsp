@@ -47,8 +47,8 @@
                         <h1 class="text-start text-white">Donde cada plato es una obra de arte</h1>
                         <br>
                         <div class="text-center col-5">
-                            <form>
-                                <a href="listas.html"><button type="button" class="btn btn-dark mt-3">ORDENAR <i class="bi bi-bell-fill"></i></button></a>
+                            <form action="<%=context%>/GenerarClientesServlet" method="post">
+                                <button type="submit" class="btn btn-dark mt-3">IR A LA COCINA <i class="bi bi-bell-fill"></i></button>
                             </form>
                         </div>
                     </div>
@@ -66,8 +66,8 @@
                         <h1 class="text-start text-black">Donde cada plato es una obra de arte</h1>
                         <br>
                         <div class="text-center col-5">
-                            <form>
-                                <a href="listas.html"><button type="button" class="btn btn-dark mt-3">ORDENAR <i class="bi bi-bell-fill"></i></button></a>
+                            <form action="<%=context%>/GenerarClientesServlet" method="post">
+                                <button type="submit" class="btn btn-dark mt-3">IR A LA COCINA <i class="bi bi-bell-fill"></i></button>
                             </form>
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                         <h1 class="text-start text-white">Donde cada plato es una obra de arte</h1>
                         <br>
                         <div class="text-center col-5">
-                            <form>
-                                <a href="listas.html"><button type="button" class="btn btn-dark mt-3">ORDENAR <i class="bi bi-bell-fill"></i></button></a>
+                            <form action="<%=context%>/GenerarClientesServlet" method="post">
+                                <button type="submit" class="btn btn-dark mt-3">IR A LA COCINA <i class="bi bi-bell-fill"></i></button>
                             </form>
                         </div>
                     </div>

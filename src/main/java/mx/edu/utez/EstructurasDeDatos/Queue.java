@@ -64,6 +64,17 @@ public class Queue<E>{
         return data;
     }
 
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Índice fuera de rango");
+        }
+        Node<E> current = front;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
     //hay otros tipos de colas? Sí, pero las importantes son esta y la de prioridad
 
 }
