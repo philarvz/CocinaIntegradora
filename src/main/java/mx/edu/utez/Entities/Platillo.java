@@ -41,6 +41,6 @@ public class Platillo {
     @Override
     public String toString() {
         return "Nombre: " + nombre + "\n" + "Precio: "+ precio
-                + "\n" + "Descripción: " + descripcion + "\n--------------------------------";
+                + "\n" + "Descripción: " + descripcion;
     }
 }
