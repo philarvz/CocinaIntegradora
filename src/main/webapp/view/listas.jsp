@@ -22,8 +22,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
-            background-color: #f8f9fa;
+            position: relative;
+            min-height: 100vh;
+            background-image: url('https://img.freepik.com/foto-gratis/vista-lateral-chef-flameando-plato-cocina_23-2148763118.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #fff;
         }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
         .order-card {
             border: 2px dashed #6c757d;
             background-color: #ffffff;
